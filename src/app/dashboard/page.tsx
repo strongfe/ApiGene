@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { toast } from 'react-hot-toast';
 import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/outline';
+import { Toaster } from 'react-hot-toast';
 
 interface ApiKey {
   id: string;
@@ -82,7 +83,7 @@ export default function Dashboard() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || '알 수 없는 오류');
+        throw new Error(errorData.message || '�� 수 없는 오류');
       }
 
       setApiKeys(apiKeys.map(key => 
@@ -385,6 +386,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+      <Toaster position="top-center" />
     </div>
   );
 }
